@@ -17,8 +17,8 @@ class Menu:
         pygame.mixer_music.play(-1)  # para a musica continua tocando
         while True:
             self.window.blit(source=self.surf, dest=self.rect)  # desenha imagem dentro do retangulo
-            self.menu_text(50, "Mountain", COLOR_ORANGE, ((WIN_WIDTH / 2), 70))  # nome do jogo
-            self.menu_text(50, "Shooter", COLOR_ORANGE, ((WIN_WIDTH / 2), 120))  # nome do jogo
+            self.menu_text(50, "Mountain", COLOR_WHITE, ((WIN_WIDTH / 2), 70))  # nome do jogo
+            self.menu_text(50, "Shooter", COLOR_WHITE, ((WIN_WIDTH / 2), 120))  # nome do jogo
             for i in range(len(MENU_OPTION)):
                 self.menu_text(25, MENU_OPTION[i], COLOR_WHITE, ((WIN_WIDTH / 2),
                                                                  180 + 30 * i))  # menu do jogo nome do jogo ,para ficar um embaixo do outro
