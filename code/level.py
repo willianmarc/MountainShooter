@@ -4,7 +4,7 @@ from pygame.font import Font
 from pygame.rect import Rect
 from pygame.surface import Surface
 
-from code.const import WIN_HEIGHT
+from code.const import WIN_HEIGHT, MENU_OPTION
 from xml.dom.minidom import Entity
 
 import pygame.display
@@ -15,12 +15,16 @@ from code.const import COLOR_WHITE
 
 class Level:
     def __init__(self, window, name, game_mode):
+        self.timeout = 20000  # 20 segundos
         self.window = window
         self.name = name
         self.game_mode = game_mode
         self.entity_list: list[Entity] = []
         self.entity_list.extend(EntityFactory.get_entity('Level1Bg'))
-        self.timeout = 20000  # 20 segundos
+        self.entity_list.append(EntityFactory.get_entity('Player1')) #colocar o jogador no jogo
+        if game_mode in [MENU_OPTION[1],MENU_OPTION[2]]:
+            self.entity_list.append(EntityFactory.get_entity('Player2'))
+
 
     def run(self, ):
         pygame.mixer_music.load(f'./asset/{self.name}.mp3')  # por musica na primeira fase
